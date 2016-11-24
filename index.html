@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebPhoto (using JpegCamera lib)</title>
+    <link rel="shortcut icon" href="assets/favicon.ico" />
+    <script type="text/javascript"
+      src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+    <script type="text/javascript"
+      src="js/jpeg_camera_with_dependencies.min.js"></script>
+    <script type="text/javascript" src="js/demo.js"></script>
+    <link href="css/demo.css" media="all" rel="stylesheet" type="text/css" /></link>
+  </head>
+  <body>
+
+    <div id="camera_info"></div>
+    <div id="stream_stats"></div>
+
+    <div id="camera">
+      <div class="placeholder">
+        Your browser does not support camera access.<br>
+        We recommend
+        <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>
+        &mdash; modern, secure, fast browser from Google.<br>
+        It's free.
+      </div>
+    </div><br>
+
+	<button id="reset">Reset</button>
+    <button id="take_snapshots">Scatta foto</button>
+    <button id="show_stream">Flusso video</button>
+    <button id="toggle_overlay">Ovale</button><br>
+
+    <div id="snapshots"></div>
+
+    <input type="text" id="api_url" placeholder="FileName"><br>
+
+    <button id="discard_snapshot">Elimina foto</button>
+    <button id="upload_snapshot">Salva foto</button><br>
+
+    <img src="assets/loader.gif" id="loader">
+    <div id="upload_status"></div>
+    <div id="upload_result"></div>
+  </body>
+</html>
