@@ -1,7 +1,8 @@
 body {
   background-color: #060606;
   color: white;
-  padding: 0.5em;
+  padding-top: 0.5em;
+  margin: 0;
   text-align: center;
   font-family: "Helvetica Neueu", "Helvetica", "Arial", sans;
 }
@@ -15,6 +16,7 @@ button, input, #loader, #filename {
   vertical-align: top;
   padding-top: 30px;
 }
+
 #filters #revert, button {
   cursor: pointer;
 }
@@ -27,6 +29,7 @@ button, input, #loader, #filename {
 {
   display: inline-block;
 }
+
 #filters label {
   vertical-align: 4px;
   width: 130px;
@@ -34,7 +37,7 @@ button, input, #loader, #filename {
 }
 
 label {
-  vertical-align: inherit;
+  vertical-align: middle;
 }
 
 input {
@@ -56,9 +59,10 @@ input {
 #snapshots {
   height: 120px;
   margin: 0.5em 0;
-  padding: 3px;
+  padding: 0.5em;
 
-  border: 1px solid #222;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
   background-color: #111;
 
   white-space: nowrap;
