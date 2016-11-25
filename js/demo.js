@@ -82,7 +82,13 @@ $(function() {
       var snapshot = $(".item.selected").data("snapshot");
       
 	  var mime = imageType ? "image/" + imageType : null;
-	  download_canvas_as(snapshot._canvas, mime, filename);
+	  var canvas = snapshot._canvas;
+	  
+	  if (camera.options.mirror) {
+	    canvas = get_flipped_canvas(canvas);
+	  }
+	  
+	  download_canvas_as(canvas, mime, filename);
 	  
       $("button[id^=download_snapshot]").prop("disabled", false);
     };
@@ -151,6 +157,23 @@ $(function() {
 			camera.discard_all();
 			$("#show_stream").hide();
 		});
+	}
+	
+	var get_flipped_canvas = function(canvas) {
+		var flippedCanvas, ctx;
+		var width = canvas.width;
+		var height = canvas.height;
+
+		flippedCanvas = document.createElement('canvas');
+		flippedCanvas.width = width;
+		flippedCanvas.height = height;
+
+		ctx = flippedCanvas.getContext('2d');
+		ctx.translate(width, 0);
+		ctx.scale(-1, 1);
+		ctx.drawImage(canvas, 0, 0);
+
+		return flippedCanvas;
 	}
 	
 	var revertFilters = function() {
