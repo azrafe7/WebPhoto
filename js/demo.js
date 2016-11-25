@@ -82,7 +82,7 @@ $(function() {
       var snapshot = $(".item.selected").data("snapshot");
       
 	  var mime = imageType ? "image/" + imageType : null;
-	  download_canvas_as(snapshot._canvas, imageType, filename);
+	  download_canvas_as(snapshot._canvas, mime, filename);
 	  
       $("button[id^=download_snapshot]").prop("disabled", false);
     };
@@ -183,7 +183,7 @@ $(function() {
 	
     $("#take_snapshots").append(" (" + snaps + ")").click(function() {take_snapshots(snaps);});
     $("#snapshots").on("click", ".item", select_snapshot);
-    $("#download_snapshot_jpeg").click(download_snapshot);
+    $("#download_snapshot_jpeg").click(download_snapshot.bind(null, "jpeg"));
     $("#download_snapshot_png").click(download_snapshot.bind(null, "png"));
     $("#discard_snapshot").click(discard_snapshot);
     $("#show_stream").click(show_stream);
