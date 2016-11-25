@@ -51,16 +51,12 @@ $(function() {
     var select_snapshot = function () {
       $(".item").removeClass("selected");
       var snapshot = $(this).addClass("selected").data("snapshot");
-      $("#discard_snapshot, #upload_snapshot, #api_url").show();
+      $("#discard_snapshot, #filename, button[id^=download_snapshot]").show();
       snapshot.show();
       $("#show_stream").show();
 	  
 	  $("#filters").show();
 	  applyFilters();
-    };
-
-    var clear_upload_data = function() {
-      $("#upload_status, #upload_result").html("");
     };
 
 	var download_canvas_as = function(canvas, mime, default_name) {
@@ -78,39 +74,17 @@ $(function() {
 		document.body.removeChild(anchor);
 	}
 	
-    var upload_snapshot = function() {
-      var api_url = $("#api_url").val() || $("#api_url").attr("placeholder");
+    var download_snapshot = function(imageType) {
+      var filename = $("#filename").val() || $("#filename").attr("placeholder");
 
-      /*if (!api_url.length) {
-        $("#upload_status").html("Please provide URL for the upload");
-        return;
-      }*/
-
-      clear_upload_data();
-      //$("#loader").show();
-      $("#upload_snapshot").prop("disabled", true);
+      $("button[id^=download_snapshot]").prop("disabled", true);
 
       var snapshot = $(".item.selected").data("snapshot");
       
-	  //snapshot.upload({api_url: api_url}).done(upload_done).fail(upload_fail);
-	  download_canvas_as(snapshot._canvas, null, api_url);
+	  var mime = imageType ? "image/" + imageType : null;
+	  download_canvas_as(snapshot._canvas, imageType, filename);
 	  
-      $("#upload_snapshot").prop("disabled", false);
-    };
-
-    var upload_done = function(response) {
-      $("#upload_snapshot").prop("disabled", false);
-      $("#loader").hide();
-      $("#upload_status").html("Upload successful");
-      $("#upload_result").html(response);
-    };
-
-    var upload_fail = function(code, error, response) {
-      $("#upload_snapshot").prop("disabled", false);
-      $("#loader").hide();
-      $("#upload_status").html(
-        "Upload failed with status " + code + " (" + error + ")");
-      $("#upload_result").html(response);
+      $("button[id^=download_snapshot]").prop("disabled", false);
     };
 
     var discard_snapshot = function() {
@@ -139,13 +113,11 @@ $(function() {
       $(this).hide();
       $(".item").removeClass("selected");
       hide_snapshot_controls();
-      clear_upload_data();
       camera.show_stream();
     };
 
     var hide_snapshot_controls = function() {
-      $("#discard_snapshot, #upload_snapshot, #api_url").hide();
-      $("#upload_result, #upload_status").html("");
+      $("#discard_snapshot, #filename, button[id^=download_snapshot]").hide();
       $("#show_stream").hide();
 	  $("#filters").hide();
     };
@@ -211,14 +183,15 @@ $(function() {
 	
     $("#take_snapshots").append(" (" + snaps + ")").click(function() {take_snapshots(snaps);});
     $("#snapshots").on("click", ".item", select_snapshot);
-    $("#upload_snapshot").click(upload_snapshot);
+    $("#download_snapshot_jpeg").click(download_snapshot);
+    $("#download_snapshot_png").click(download_snapshot.bind(null, "png"));
     $("#discard_snapshot").click(discard_snapshot);
     $("#show_stream").click(show_stream);
     $("#toggle_overlay").click(function() {$("#overlay").toggle();});
 
-	$("#api_url").keyup(function(event){
+	$("#filename").keyup(function(event){
 		if (event.keyCode == 13){
-			$("#upload_snapshot").click();
+			$("#download_snapshot").click();
 		}
 	});
 
