@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WebPhoto (using JpegCamera lib)</title>
+    <title>WebPhoto</title>
     <link rel="shortcut icon" href="assets/favicon.ico" />
     <!--script type="text/javascript"
       src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
@@ -54,21 +54,21 @@
 		</span>
 	</div>
 	
-	<button id="reset">Reset</button>
-    <button id="take_snapshots">Scatta foto</button>
-    <button id="show_stream">Flusso video</button>
-    <button id="toggle_overlay">Ovale</button><br>
+	<button id="reset">Clear all</button>
+    <button id="take_snapshots">Take snapshots</button>
+    <button id="show_stream">Video stream</button>
+    <button id="toggle_overlay">Face marker</button><br>
 
     <div id="snapshots"></div>
 
 	<div id="filename">
-		<label for="filename">Salva come:</label>
+		<label for="filename">Save as:</label>
 		<input type="text" id="filename" placeholder="FileName">
 	</div>
 
-    <button id="discard_snapshot">Elimina foto</button>
-    <button id="download_snapshot_jpeg">Salva foto (jpeg)</button>
-    <button id="download_snapshot_png">Salva foto (png)</button>
+    <button id="discard_snapshot">Remove</button>
+    <button id="download_snapshot_jpeg">Save jpeg</button>
+    <button id="download_snapshot_png">Save png</button>
 	<br>
 
     <img src="assets/loader.gif" id="loader">
