@@ -54,6 +54,9 @@ $(function() {
       $("#discard_snapshot, #upload_snapshot, #api_url").show();
       snapshot.show();
       $("#show_stream").show();
+	  
+	  $("#filters").show();
+	  applyFilters();
     };
 
     var clear_upload_data = function() {
@@ -144,6 +147,7 @@ $(function() {
       $("#discard_snapshot, #upload_snapshot, #api_url").hide();
       $("#upload_result, #upload_status").html("");
       $("#show_stream").hide();
+	  $("#filters").hide();
     };
 
 	var add_overlay_canvas = function() {
@@ -176,6 +180,34 @@ $(function() {
 			$("#show_stream").hide();
 		});
 	}
+	
+	var revertFilters = function() {
+		$("#filters input").each(function() {
+			$(this).val(0);
+		});
+		applyFilters();
+	}
+	
+	var applyFilters = function() {
+		var canvas = $("#camera canvas").get(-1);
+		
+		Caman(canvas, function() {
+			var caman = this;
+			caman.revert(false);
+			
+			$("#filters label").each(function() {
+				var filterName = $(this).attr("for");
+				var filterValue = parseInt($("#filters #" + filterName).val());
+				$(this).text(filterName + " (" + filterValue + ")");
+				
+				caman[filterName](filterValue);
+			});
+			
+			caman.render();
+		});
+	}
+	$("#filters input").on("change", applyFilters);
+	$("#revert").click(revertFilters);
 	
     $("#take_snapshots").append(" (" + snaps + ")").click(function() {take_snapshots(snaps);});
     $("#snapshots").on("click", ".item", select_snapshot);

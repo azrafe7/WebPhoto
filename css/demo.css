@@ -10,6 +10,26 @@ button, input, #loader {
   display: none;
 }
 
+#filters {
+  display: none;
+}
+#filters #revert, button {
+  cursor: pointer;
+}
+
+#filters #revert:hover {
+  text-decoration: underline;
+}
+
+#filters input[type=range]
+{
+  display: inline-block;
+}
+#filters label {
+  vertical-align: 4px;
+  width: 60px;
+}
+
 input {
   width: 300px;
 }
