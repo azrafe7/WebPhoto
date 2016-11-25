@@ -21,30 +21,38 @@
     <div id="camera_info"></div>
     <div id="stream_stats"></div>
 
-    <div id="camera">
-      <div class="placeholder">
-        Your browser does not support camera access.<br>
-        We recommend
-        <a href="https://www.google.com/chrome/" target="_blank">Chrome</a>
-        &mdash; modern, secure, fast browser from Google.<br>
-        It's free.
-      </div>
-    </div>
-	<br>
+	<div id="cam_container">
+		<div id="camera">
+		  <div class="placeholder">
+			Your browser does not support camera access.<br>
+			We recommend
+			<a href="https://www.google.com/chrome/" target="_blank">Chrome</a>
+			&mdash; modern, secure, fast browser from Google.<br>
+			It's free.
+		  </div>
+		</div>
 
-	<form id="filters">
-		<div>
-			<span id="revert">revert</span>
-		</div>
-		<div>
-			<label for="brightness"></label>
-			<input id="brightness" type="range" min="-20" max="20" value="0" />
-		</div>
-		<div>
-			<label for="contrast"></label>
-			<input id="contrast" type="range" min="-20" max="20" value="0" />
-		</div>
-	</form>
+		<span id="filters">
+			<form>
+				<div>
+					<label for="brightness"></label>
+					<input id="brightness" type="range" min="-50" max="50" value="0" />
+				</div>
+				<div>
+					<label for="contrast"></label>
+					<input id="contrast" type="range" min="-50" max="50" value="0" />
+				</div>
+				<div>
+					<label for="vignette"></label>
+					<input id="vignette" type="range" min="0" max="400" value="0" />
+				</div>
+				<br>
+				<div>
+					<span id="revert">revert</span>
+				</div>
+			</form>
+		</span>
+	</div>
 	
 	<button id="reset">Reset</button>
     <button id="take_snapshots">Scatta foto</button>
@@ -53,8 +61,10 @@
 
     <div id="snapshots"></div>
 
-    <input type="text" id="filename" placeholder="FileName">
-	<br>
+	<div id="filename">
+		<label for="filename">Salva come:</label>
+		<input type="text" id="filename" placeholder="FileName">
+	</div>
 
     <button id="discard_snapshot">Elimina foto</button>
     <button id="download_snapshot_jpeg">Salva foto (jpeg)</button>

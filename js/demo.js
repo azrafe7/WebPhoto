@@ -55,7 +55,7 @@ $(function() {
       snapshot.show();
       $("#show_stream").show();
 	  
-	  $("#filters").show();
+	  $("#filters").css("display", "inline-block");
 	  applyFilters();
     };
 
@@ -75,7 +75,7 @@ $(function() {
 	}
 	
     var download_snapshot = function(imageType) {
-      var filename = $("#filename").val() || $("#filename").attr("placeholder");
+      var filename = $("#filename input").val() || $("#filename input").attr("placeholder");
 
       $("button[id^=download_snapshot]").prop("disabled", true);
 
@@ -212,9 +212,9 @@ $(function() {
     $("#show_stream").click(show_stream);
     $("#toggle_overlay").click(function() {$("#overlay").toggle();});
 
-	$("#filename").keyup(function(event){
+	$("#filename input").keyup(function(event) {
 		if (event.keyCode == 13){
-			$("#download_snapshot").click();
+			$("#download_snapshot_jpeg").click();
 		}
 	});
 
