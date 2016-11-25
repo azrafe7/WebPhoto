@@ -4,9 +4,9 @@ Customized [Jpeg Camera](https://github.com/amw/jpeg_camera) demo.
 What it does:
 
  - not much, but...
- - can apply some simple image filters to your webcam stream (using [CamanJS](http://camanjs.com/))
+ - can apply some simple image filters to your webcam snapshots (using [CamanJS](http://camanjs.com/))
  - can save the resulting image as jpeg or png
- - can be easily run locally (without an internet connection)
+ - can be easily run locally (without an internet connection - f.e. with python or mongoose)
 
 ![](assets/screenshot.png)
 
