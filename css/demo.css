@@ -15,6 +15,7 @@ button, input, #loader, #filename {
   display: none;
   vertical-align: top;
   padding-top: 30px;
+  font-size: smaller;
 }
 
 #filters #revert, button {
@@ -31,7 +32,7 @@ button, input, #loader, #filename {
 }
 
 #filters label {
-  vertical-align: 4px;
+  vertical-align: 6px;
   width: 130px;
   display: inline-block;
 }
