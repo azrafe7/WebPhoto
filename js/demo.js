@@ -178,7 +178,7 @@ $(function() {
 	
 	var revertFilters = function() {
 		$("#filters input").each(function() {
-			$(this).val(0);
+			$(this).val($(this).attr("defaultValue") || 0);
 		});
 		applyFilters();
 	}
@@ -203,6 +203,7 @@ $(function() {
 	}
 	$("#filters input").on("change", applyFilters);
 	$("#revert").click(revertFilters);
+	revertFilters();
 	
     $("#take_snapshots").append(" (" + snaps + ")").click(function() {take_snapshots(snaps);});
     $("#snapshots").on("click", ".item", select_snapshot);
