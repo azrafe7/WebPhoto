@@ -158,6 +158,13 @@ $(document).ready(function() {
 		//loader.show();
 	}
 	
+	// let pointer events go through in some #camera children so that they 
+	// get passed to video and we can have a "show controls" in the context menu
+	var pass_pointer_events = function() {
+		$("#camera #overlay").add($("#camera div").eq(-1))
+		  .css("pointer-events", "none");
+	}
+	
 	var reset = function() {
 		show_stream();
 		$("#snapshots .item").hide("slow", function() {
@@ -255,6 +262,7 @@ $(document).ready(function() {
 	  add_overlay_canvas();
 	  draw_ellipse();
 	  setup_loader();
+	  pass_pointer_events();
     });
   }
 });
