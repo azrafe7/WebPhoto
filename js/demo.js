@@ -49,6 +49,8 @@ $(document).ready(function() {
     };
 
     var select_snapshot = function () {
+	  if ($(this).hasClass("selected")) return;
+		
       $(".item").removeClass("selected");
       var snapshot = $(this).addClass("selected").data("snapshot");
       $("#discard_snapshot, #filename, button[id^=download_snapshot]").show();
