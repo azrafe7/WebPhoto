@@ -11,6 +11,14 @@ button, input, #loader, #filename {
   display: none;
 }
 
+#loader {
+	position: absolute;
+	z-index: 3;
+	left: 0;
+	width: 32px;
+	height: 32px;
+}
+
 #filters {
   display: none;
   vertical-align: top;

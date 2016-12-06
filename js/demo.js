@@ -1,4 +1,4 @@
-$(function() {
+$(document).ready(function() {
   if (window.JpegCamera) {
     var snaps = 3;
 	var camera; // Initialized at the end
@@ -150,6 +150,12 @@ $(function() {
 		ctx.stroke();
 	}
 	
+	var setup_loader = function() {
+		var loader = $("#loader").detach();
+		loader.appendTo($("#camera div")[0]);
+		//loader.show();
+	}
+	
 	var reset = function() {
 		show_stream();
 		$("#snapshots .item").hide("slow", function() {
@@ -198,7 +204,10 @@ $(function() {
 				caman[filterName](filterValue);
 			});
 			
-			caman.render();
+			$("#loader").show();
+			caman.render(function() {
+				$("#loader").hide();
+			});
 		});
 	}
 	$("#filters input").on("change", applyFilters);
@@ -243,6 +252,7 @@ $(function() {
 	  
 	  add_overlay_canvas();
 	  draw_ellipse();
+	  setup_loader();
     });
   }
 });
