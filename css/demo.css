@@ -11,6 +11,10 @@ button, input, #loader, #filename {
   display: none;
 }
 
+#filename {
+  margin-bottom: 5px;
+}
+
 #loader {
 	position: absolute;
 	z-index: 3;
