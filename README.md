@@ -8,7 +8,7 @@ What it does:
  - can save the resulting image as jpeg or png
  - can be easily run locally (without an internet connection - f.e. with python or mongoose)
 
-![](assets/screenshot.png)
+![](assets/screenshot02.png)
 
 [online demo](https://rawgit.com/azrafe7/WebPhoto/master/index.html)
 
