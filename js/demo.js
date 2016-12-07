@@ -114,7 +114,10 @@ $(document).ready(function() {
 
       element.data("snapshot").discard();
 
-      element.hide("slow", function() {$(this).remove()});
+      element.hide("slow", function() {
+		  $(this).remove();
+	      applyFilters();
+	  });
     };
 
     var show_stream = function() {
