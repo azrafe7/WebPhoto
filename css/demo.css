@@ -113,3 +113,11 @@ input {
 button, #upload_status, #upload_result, #loader {
   margin: 0.5em;
 }
+
+
+#author {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: rgba(16, 16, 16,.5);
+}
