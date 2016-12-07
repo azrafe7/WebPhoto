@@ -107,7 +107,7 @@ input {
 }
 
 #snapshots .selected {
-  border: 3px solid #e00;
+  border: 3px solid #ca1c00;
 }
 
 button, #upload_status, #upload_result, #loader {
