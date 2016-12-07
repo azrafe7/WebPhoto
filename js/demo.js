@@ -116,7 +116,9 @@ $(document).ready(function() {
 
       element.hide("slow", function() {
 		  $(this).remove();
-	      applyFilters();
+	      setTimeout(function() { 
+			applyFilters();
+	      }, 200);
 	  });
     };
 
