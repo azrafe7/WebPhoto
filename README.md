@@ -10,7 +10,7 @@ What it does:
 
 ![](assets/screenshot02.png)
 
-[online demo](https://rawgit.com/azrafe7/WebPhoto/master/index.html)
+[online demo](https://raw.githack.com/azrafe7/webphoto/master/index.html)
 
 
 ### Why?
